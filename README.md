@@ -89,6 +89,7 @@ Body: (raw, JSON)
 ### DELETE /tasks/:id
 
 ## Project Structure
+<pre>
 .
 ├── dist/                         # Compiled JS output (auto-generated after build)
 ├── src/
@@ -101,3 +102,4 @@ Body: (raw, JSON)
 ├── tsconfig.json                 # TypeScript configuration
 ├── package.json                  # Project metadata and dependencies
 └── README.md                     # Project documentation
+</pre>
