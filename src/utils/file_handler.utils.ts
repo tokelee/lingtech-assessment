@@ -44,12 +44,27 @@ async function add_task({title, description, status}:{title:string; description:
     return new_task;
 }
 
-async function update_task({id, title, description, status}:TaskModel): Promise<TaskModel | undefined> {
+async function update_task({id, title, description, status}:TaskModel): Promise<TaskModel | undefined | boolean> {
     const tasks:TaskModel[] = await read_tasks();
     const task_index = tasks.findIndex((task)=>task.id === id);
-    tasks[task_index] = {id, title, description, status};
+    if(!tasks[task_index]) return false
+    tasks[task_index] = {
+        id: tasks[task_index].id, 
+        title: title || tasks[task_index].title, 
+        description: description || tasks[task_index].description, 
+        status: status || tasks[task_index].status
+    };
     await fs.writeFile(task_file_path, JSON.stringify(tasks));
     return tasks[task_index];
 }
 
-export {read_task, add_task, read_tasks, update_task}
+async function delete_task(id:string) {
+    const tasks:TaskModel[] = await read_tasks();
+    const task_index = tasks.findIndex((task)=>task.id === id);
+    if(!tasks[task_index]) return false
+    tasks.splice(task_index, 1)
+    await fs.writeFile(task_file_path, JSON.stringify(tasks));
+    return true;
+}
+
+export {read_task, add_task, read_tasks, update_task, delete_task}
