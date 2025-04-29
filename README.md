@@ -44,6 +44,11 @@ npm run build
 npm start
 ```
 
+### 6. Run Test
+```
+npm test
+```
+
 ## Testing with Postman
 You can test the API endpoints using [Postman](https://www.postman.com/downloads/)
 
@@ -56,11 +61,12 @@ npm run dev
 By default, the server runs on: http://127.0.0.1:5000
 (Change the port in src/server.ts if needed.)
 
-2. Open Postman and create a new request.
-3. Example Requests
-GET /tasks
+2. **Open Postman and create a new request.**
+3. **Example Requests**
 
-POST /tasks
+### GET /tasks
+
+### POST /tasks
 Body: (raw, JSON)
 ```json
 {
@@ -70,7 +76,7 @@ Body: (raw, JSON)
 }
 ```
 
-PUT /tasks/:id
+### PUT /tasks/:id
 Body: (raw, JSON)
 ```json
 {
@@ -80,17 +86,18 @@ Body: (raw, JSON)
 }
 ```
 
-DELETE /tasks/:id
+### DELETE /tasks/:id
 
 ## Project Structure
 .
+├── dist/                         # Compiled JS output (auto-generated after build)
 ├── src/
-    └── controllers
-    └── middlewares
-    └── routes
-    └── utils
-│   └── server.ts       # Entry point
-├── dist/               # Compiled JS output
-├── tasks.json          # In-memory JSON data store
-├── tsconfig.json       # TypeScript configuration
-└── package.json
+│   ├── controllers/              # Folder for controller logic
+│   ├── middlewares/              # Folder for middlewares
+│   ├── routes/                   # Folder for route definitions
+│   ├── utils/                    # Folder for helper functions
+│   └── server.ts                 # Entry point to your app
+├── tasks.json                    # In-memory JSON data store
+├── tsconfig.json                 # TypeScript configuration
+├── package.json                  # Project metadata and dependencies
+└── README.md                     # Project documentation

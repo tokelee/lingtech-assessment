@@ -1,10 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import {dirname} from "path"
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const project_root = path.resolve();
 const task_file_path = path.join(project_root, 'tasks.json');
 

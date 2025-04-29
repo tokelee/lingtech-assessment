@@ -7,7 +7,7 @@
     "#*": "./src/*"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "dev": "tsx --watch src/server.ts",
     "start": "node dist/src/server.js",
     "build": "tsc",
@@ -27,10 +27,13 @@
     "@tsconfig/node22": "^22.0.1",
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.3",
+    "@types/supertest": "^6.0.3",
     "eslint": "^9.25.1",
     "eslint-plugin-perfectionist": "^4.12.3",
+    "supertest": "^7.1.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.31.0"
+    "typescript-eslint": "^8.31.0",
+    "vitest": "^3.1.2"
   }
 }

@@ -15,3 +15,5 @@ app.use(errorHandler);
 app.listen(port, () => {
     console.log(`App is running at http://127.0.0.1:${port}`);
 });
+
+export default app;
