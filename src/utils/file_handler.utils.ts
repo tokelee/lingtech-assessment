@@ -5,8 +5,8 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const src_path = path.join(__dirname, "..")
-const task_file_path = path.join(src_path, 'tasks.json');
+const project_root = path.resolve();
+const task_file_path = path.join(project_root, 'tasks.json');
 
 
 // Read multiple tasks
@@ -17,7 +17,7 @@ async function read_tasks(): Promise<TaskModel[]> {
     }catch(err:any){
         if(err.code === 'ENOENT'){
             console.log("File not found, initializing with an empty task list.");
-            await fs.writeFile(task_file_path, []) 
+            await fs.writeFile(task_file_path, '[]') 
             return [];
         }else{
             console.log("Failed to read tasks from file", err);
